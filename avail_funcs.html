@@ -1,0 +1,316 @@
+<html>
+<head>
+<title>
+HotScheme Functions Currently Implemented
+</title>
+</head>
+<body>
+
+
+<h1>
+HotScheme Forms Currently Implemented
+</h1>
+
+<hr>
+
+<p>
+<h3>
+Syntactical Forms:
+</h3>
+<ul>
+
+<li>(and exp1 exp2 ...)<br>
+<strong>returns:</strong> #t if all expressions are true, else #f
+
+<li>(begin exp ...)<br>
+<strong>returns:</strong> evaluates each exp ... in order and returns value of the last exp
+
+<li>(begin exp ...)<br>
+<strong>returns:</strong> evaluates each exp ... in order and returns value of the last exp
+
+<li>(case exp0 clause1 clause2 ...)<br>
+Each clause except the last must have the form: ((key ...) exp1 exp2 ...).
+The last clause may have the form: (else exp1 exp2 ...).
+<br>
+<strong>returns:</strong>
+exp0 is evaluated, and the result is tested against the keys of each clause in succesion.
+If there are any matches, each of the expressions associated with the clause is evaluated,
+and the value of the last is returned.
+If there are no matches, the value of the optional else clause is returned, if present,
+otherwise false is returned.
+
+<li>(cond clause1 clause2 ...)<br>
+
+<li>(define var val)<br>
+<strong>returns:</strong> val
+
+<li>(do ((var val update) ...) (test res ...) exp ...)<br>
+<strong>returns:</strong> the result of the last res on the final loop
+
+<li>(if cond exp1 exp2)<br>
+<strong>returns:</strong> exp1 if cond is true, else exp2
+
+<li>(lambda formals exp)<br>
+<strong>returns:</strong> a new procedure
+
+<li>(let ((var val) ...) exp)<br>
+<strong>returns:</strong> the value of exp
+
+<li>(letrec ((var val) ...) exp)<br>
+<strong>returns:</strong> the value of exp
+
+<li>(or exp1 exp2 ...)<br>
+<strong>returns:</strong> #t if any expression is true, else #f
+
+<li>(quote obj) <em>or</em> 'obj<br>
+<strong>returns:</strong> obj
+
+<li>(send-message obj msg arg ...)<br>
+<strong>returns:</strong> the result of calling the msg on the obj with arg ...
+
+<li>(set! var val)<br>
+<strong>returns:</strong> val
+
+<li>trace-on<br>
+<strong>returns:</strong> #f
+
+<li>trace-off<br>
+<strong>returns:</strong> #f
+
+</ul>
+
+<h3>
+Predicates:
+</h3>
+<ul>
+
+<li>(char? obj)<br>
+<strong>returns:</strong>true if obj is a char; false otherwise
+
+<li>(eq? obj1 obj2)<br>
+<strong>returns:</strong> true if obj1 and obj2 are the same object in memory; false otherwise
+
+<li>(equal? obj1 obj2)<br>
+<strong>returns:</strong> true if obj1 and obj2 have the same structure and contents; false otherwise
+
+<li>(eqv? obj1 obj2)<br>
+<strong>returns:</strong> true if obj1 and obj2 are eq?, or if they are characters or numbers with the same value; false otherwise
+
+<li>(integer? obj)<br>
+<strong>returns:</strong> true if obj is an integer; false otherwise
+
+<li>(list? obj)<br>
+<strong>returns:</strong> true if obj is a list; false otherwise
+
+<li>(null? obj)<br>
+<strong>returns:</strong> true if obj is #f or (); false otherwise
+
+<li>(number? obj)<br>
+<strong>returns:</strong> true if obj is a number; false otherwise
+
+<li>(procedure? obj)<br>
+<strong>returns:</strong> true if obj is a procedure; false otherwise
+
+<li>(rational? obj)<br>
+<strong>returns:</strong> true if obj is a rational number; false otherwise
+
+<li>(string? obj)<br>
+<strong>returns:</strong> true if obj is a string; false otherwise
+
+<li>(symbol? obj)<br>
+<strong>returns:</strong> true if obj is a symbol; false otherwise
+
+<li>(vector? obj)<br>
+<strong>returns:</strong> true if obj is a vector; false otherwise
+
+</ul>
+
+<h3>
+Arithmetic Functions:
+</h3>
+<ul>
+
+<li>(- num1 num2 ...):<br>
+<strong>returns:</strong> the result of subtracting num2 ... numN from num1
+
+<li>(/ num1 num2 num3 ...)<br>
+<strong>returns:</strong> with one arg, the reciprocal of num1
+with > 1 arg, the results of dividing num1 by the product of the remaining arguments.
+
+<li>(+ num1 num2 ...):<br>
+<strong>returns:</strong> the result of adding num1 ... numN
+
+<li>(* num1 num2 ...):<br>
+<strong>returns:</strong> the result of multiplying num1 ... numN
+
+<li>(> num1 num2 ...)<br>
+<strong>returns:</strong>true if num1 ... numN are monotonically decreasing; false otherwise
+
+<li>(< num1 num2 ...)<br>
+<strong>returns:</strong>true if num1 ... numN are monotonically increasing; false otherwise
+
+</ul>
+
+<h3>
+List Functions:
+</h3>
+
+<ul>
+
+<li>(append ls1 ls2 ...)<br>
+<strong>returns:</strong> a new list consisting of ls2 ... lsN appended to ls1
+
+<li>(caaar ls)<br>
+<strong>returns:</strong> (car (car (car ls)))
+
+<li>(caadr ls)<br>
+<strong>returns:</strong> (car (car (cdr ls)))
+
+<li>(caar ls)<br>
+<strong>returns:</strong> (car (car ls))
+
+<li>(cadar ls)<br>
+<strong>returns:</strong> (car (cdr (car ls)))
+
+<li>(caddr ls)<br>
+<strong>returns:</strong> (car (cdr (cdr ls)))
+
+<li>(cadr ls)<br>
+<strong>returns:</strong> (car (cdr ls))
+
+<li>(car ls)<br>
+<strong>returns:</strong> first member of ls
+
+<li>(cdadr ls)<br>
+<strong>returns:</strong> (cdr (car (cdr ls)))
+
+<li>(cdar ls)<br>
+<strong>returns:</strong> (cdr (car ls))
+
+<li>(cdaar ls)<br>
+<strong>returns:</strong> (cdr (car (car ls)))
+
+<li>(cddar ls)<br>
+<strong>returns:</strong> (cdr (cdr (car ls)))
+
+<li>(cddr ls)<br>
+<strong>returns:</strong> (cdr (cdr ls))
+
+<li>(cdddr ls)<br>
+<strong>returns:</strong> (cdr (cdr (cdr ls)))
+
+<li>(cdr ls)<br>
+<strong>returns:</strong> a copy of ls with the first item removed
+
+<li>(cons obj1 obj2)<br>
+<strong>returns:</strong> a pair with a car of obj1 and a cdr of obj2
+
+<li>(length ls)<br>
+<strong>returns:</strong> the number of items in ls
+
+<li>(list-ref ls n)<br>
+<strong>returns:</strong> the Nth item of ls
+
+<li>(map procedure ls1 ls2 ...)<br>
+<strong>returns:</strong> list of results of mapping procedure across ls1...lsN
+
+<li>(member obj ls)<br>
+<strong>returns:</strong> the portion of ls starting at obj, if obj is equal? to any member of ls; false otherwise
+
+<li>(memvaux obj ls)<br>
+<strong>returns:</strong> the portion of ls starting at obj, if obj is eqv? to any member of ls; false otherwise
+
+<li>(memqaux obj ls)<br>
+<strong>returns:</strong> the portion of ls starting at obj, if obj is eq? to any member of ls; false otherwise
+
+<li>(reverse ls)<br>
+<strong>returns:</strong> a copy of ls in reverse order
+
+</ul>
+
+<h3>
+Type Conversions:
+</h3>
+
+<ul>
+
+<li>(list->string ls)<br>
+<strong>returns:</strong> a string containing all the chars in ls
+
+<li>(string->list string)<br>
+<strong>returns:</strong> a list containing all the chars in string
+
+</ul>
+
+<h3>
+String Functions:
+</h3>
+
+<ul>
+
+<li>(substring string start end)<br>
+<strong>returns:</strong> the portion of string from start to end
+
+<li>(string-append string ...)<br>
+<strong>returns:</strong> a new string resulting from the concatenation of string ...
+
+<li>(string-ref string n)<br>
+<strong>returns:</strong> the nth character of string
+
+<li>(string-set! string n char)<br>
+<strong>returns:</strong> sets the nth character of string to char; returns string
+
+</ul>
+
+<h3>
+Vector Functions:
+</h3>
+
+<ul>
+
+<li>(vector-length vector)<br>
+<strong>returns:</strong> the length of vector
+
+<li>(vector-ref vector n)<br>
+<strong>returns:</strong> the Nth item of vector
+
+<li>(vector-set! vector n obj)<br>
+<strong>returns:</strong> sets the Nth item of vector to obj
+
+</ul>
+
+<h3>
+Global Symbols:
+</h3>
+
+<ul>
+<li>#t
+<li>#f
+<li>applet
+<li>global-env
+<li>applet-context
+</ul>
+
+</p>
+
+
+
+
+
+
+
+
+<hr>
+
+<p>
+<a href="HotScheme.html">
+Return to HotScheme
+</a>
+</p>
+
+<p>
+<em>Copyright 1997, Gene Callahan and Brian Clark</em>
+</p>
+
+</body>
+</html>

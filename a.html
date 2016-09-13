@@ -1,0 +1,145 @@
+
+(cdr ls)
+returns: a copy of ls with the first item removed
+
+Symbol: #t
+
+(cadar ls)
+returns: (car (cdr (car ls)))
+
+(cons obj1 obj2)
+returns: a pair with a car of obj1 and a cdr of obj2
+
+(cdadr ls)
+returns: (cdr (car (cdr ls)))
+
+Symbol: applet
+
+(string? obj)
+returns: true if obj is a string; false otherwise
+
+(cdaar ls)
+returns: (cdr (car (car ls)))
+
+Symbol: #f
+
+(equal? obj1 obj2)
+returns: true if obj1 and obj2 have the same structure and contents; false otherwise
+
+(null? obj)
+returns: true if obj is #f or ()
+; false otherwise
+
+(cdr ls)
+returns: a copy of ls with the first item removed
+
+(cdddr ls)
+returns: (cdr (cdr (cdr ls)))
+
+(car ls)
+returns: first member of ls
+
+(rational? obj)
+returns: true if obj is a rational number; false otherwise
+
+(symbol? obj)
+returns: true if obj is a symbol; false otherwise
+
+(car ls)
+returns: first member of ls
+
+(cadr ls)
+returns: (car (cdr ls))
+
+(eqv? obj1 obj2)
+returns: true if obj1 and obj2 are eq?, or if they are characters or numbers with the same value; false otherwise
+
+(cddar ls)
+returns: (cdr (cdr (car ls)))
+
+(/ num1 num2 num3 ...)
+returns: with one arg, the reciprocal of num1
+with > 1 arg, the results of dividing num1 by the product of the remaining arguments.
+
+(procedure? obj)
+returns: true if obj is a procedure
+; false otherwise
+
+(- num1 num2 ...):
+returns the result of subtracting num2 ... numN from num1
+
+
+(cadr ls)
+returns: (car (cdr ls))
+
+(reverse ls)
+returns: a copy of ls in reverse order
+
+(+ num1 num2 ...):
+returns the result of adding num1 ... numN
+
+
+(caar ls)
+returns: (car (car ls))
+
+(* num1 num2 ...):
+returns the result of multiplying num1 ... numN
+
+
+(caadr ls)
+returns: (car (car (cdr ls)))
+
+Built-in #<procedure>:
+
+
+(integer? obj)
+returns: true if obj is an integer
+; false otherwise
+
+Symbol: global-env
+
+(caaar ls)
+returns: (car (car (car ls)))
+
+(list? obj)
+returns: true if obj is a list
+; false otherwise
+
+Symbol: applet-context
+
+(member obj ls)
+returns: the portion of ls starting at obj, if obj is equal? to any member of ls
+; false otherwise
+
+(memvaux obj ls)
+returns: the portion of ls starting at obj, if obj is eqv? to any member of ls
+; false otherwise
+
+(cddr ls)
+returns: (cdr (cdr ls))
+
+(memqaux obj ls)
+returns: the portion of ls starting at obj, if obj is eq? to any member of ls
+; false otherwise
+
+(append ls1 ls2 ...)
+returns: a new list consisting of ls2 ... lsN appended to ls1
+
+(cdar ls)
+returns: (cdr (car ls))
+
+(length ls)
+returns: the number of items in ls
+
+(caddr ls)
+returns: (car (cdr (cdr ls)))
+
+(number? obj)
+returns: true if obj is a number
+; false otherwise
+
+(eq? obj1 obj2)
+returns: true if obj1 and obj2 are the same object in memory
+; false otherwise
+
+
